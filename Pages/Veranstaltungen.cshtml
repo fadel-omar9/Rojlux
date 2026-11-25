@@ -1,0 +1,113 @@
+@page
+@model RojLuxWeb.Pages.VeranstaltungenModel
+@{
+    ViewData["Title"] = "Veranstaltungen";
+    ViewData["Description"] = "Aktuelle und vergangene Veranstaltungen von Roj Lux ASBL — Newroz-Fest, kulturelle Abende und mehr in Luxemburg.";
+}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="~/images/veranstaltungen.jpg" alt="Veranstaltungen"></div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-badge" style="background: rgba(234,179,8,0.15); color: var(--color-gold);">📅 Events</span>
+    <h1>Veranstaltungen</h1>
+    <p>Erleben Sie unsere kulturellen Events, Feste und Bildungsangebote.</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<!-- Upcoming Events -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">🔜 Kommende Events</span>
+      <h2>Was kommt als Nächstes?</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Seien Sie dabei — bei unseren kommenden Veranstaltungen und Aktivitäten.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="event-card animate-on-scroll animate-delay-1">
+        <div class="event-card-image">
+          <img src="~/images/veranstaltungen.jpg" alt="Newroz-Fest 2026">
+          <div class="event-card-date"><span class="day">21</span><span class="month">Mär</span></div>
+          <span class="event-card-badge">Highlight</span>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">Newroz-Fest 2026</h3>
+          <div class="event-card-location">📍 Luxemburg</div>
+          <p class="event-card-description">Das kurdische Neujahrsfest — ein Fest des Frühlings, der Freiheit und der Hoffnung. Mit traditioneller Musik, Dabke-Tanz, kurdischem Essen und einem großen Feuer als Symbol des Neubeginns.</p>
+          <a asp-page="/Kontakt" class="btn btn-sm btn-primary">Teilnehmen</a>
+        </div>
+      </div>
+
+      <div class="event-card animate-on-scroll animate-delay-2">
+        <div class="event-card-image">
+          <img src="~/images/hintergrunf.jpg" alt="Kultureller Sommerabend">
+          <div class="event-card-date"><span class="day">15</span><span class="month">Jun</span></div>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">Kultureller Sommerabend</h3>
+          <div class="event-card-location">📍 Luxembourg-Stadt</div>
+          <p class="event-card-description">Ein Abend voller kurdischer Kultur: Musik, Poesie, Geschichten und kulinarische Genüsse. Eine Gelegenheit, die Vielfalt und Schönheit unserer Kultur zu erleben.</p>
+          <a asp-page="/Kontakt" class="btn btn-sm btn-outline">Details ansehen</a>
+        </div>
+      </div>
+
+      <div class="event-card animate-on-scroll animate-delay-3">
+        <div class="event-card-image">
+          <img src="~/images/hintergrunf.jpg" alt="Kurdisch-Kurs für Kinder">
+          <div class="event-card-date"><span class="day">01</span><span class="month">Sep</span></div>
+        </div>
+        <div class="event-card-body">
+          <h3 class="event-card-title">Kurdisch-Kurs für Kinder</h3>
+          <div class="event-card-location">📍 Luxembourg</div>
+          <p class="event-card-description">Spielerischer Sprachunterricht für Kinder von 5 bis 14 Jahren. Kurdisch lernen mit Spaß — durch Lieder, Spiele, Geschichten und kreative Projekte.</p>
+          <a asp-page="/Kontakt" class="btn btn-sm btn-outline">Anmelden</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Past Events Timeline -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">📜 Rückblick</span>
+      <h2>Vergangene Veranstaltungen</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Ein Blick zurück auf unsere bisherigen Aktivitäten und Veranstaltungen.</p>
+    </div>
+
+    <div class="timeline" style="max-width: 700px; margin: 0 auto;">
+      <div class="timeline-item animate-on-scroll">
+        <span class="timeline-date">März 2025</span>
+        <h3 style="margin-bottom: var(--space-sm);">Newroz-Fest 2025</h3>
+        <p style="margin: 0; font-size: var(--fs-sm);">Unser erstes großes Newroz-Fest in Luxemburg. Über 200 Gäste feierten gemeinsam mit Musik, Tanz und kurdischem Essen. Ein unvergesslicher Abend unter beiden Flaggen — der kurdischen und der luxemburgischen.</p>
+      </div>
+      <div class="timeline-item animate-on-scroll">
+        <span class="timeline-date">Januar 2025</span>
+        <h3 style="margin-bottom: var(--space-sm);">Generalversammlung 2025</h3>
+        <p style="margin: 0; font-size: var(--fs-sm);">Die erste offizielle Generalversammlung des Vereins. Wahl des Vorstands, Festlegung der Ziele für das Jahr und Planung der kommenden Veranstaltungen.</p>
+      </div>
+      <div class="timeline-item animate-on-scroll">
+        <span class="timeline-date">2024</span>
+        <h3 style="margin-bottom: var(--space-sm);">Gründung von Roj Lux ASBL</h3>
+        <p style="margin: 0; font-size: var(--fs-sm);">Roj Lux ASBL wurde offiziell in Luxemburg gegründet — mit der Vision, kurdische Kultur zu bewahren und Integration zu fördern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content animate-on-scroll">
+      <h2>Sie möchten eine Veranstaltung vorschlagen?</h2>
+      <p>Wir sind offen für neue Ideen! Kontaktieren Sie uns und lassen Sie uns gemeinsam etwas Besonderes planen.</p>
+      <a asp-page="/Kontakt" class="btn btn-primary btn-lg">Kontakt aufnehmen →</a>
+    </div>
+  </div>
+</section>

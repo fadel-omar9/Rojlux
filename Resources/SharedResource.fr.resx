@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="Startseite" xml:space="preserve">
+    <value>Accueil</value>
+  </data>
+  <data name="Über uns" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="Veranstaltungen" xml:space="preserve">
+    <value>Événements</value>
+  </data>
+  <data name="Galerie" xml:space="preserve">
+    <value>Galerie</value>
+  </data>
+  <data name="Kontakt" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="Mitglied werden" xml:space="preserve">
+    <value>Devenir membre</value>
+  </data>
+</root>

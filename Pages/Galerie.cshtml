@@ -1,0 +1,74 @@
+@page
+@model RojLuxWeb.Pages.GalerieModel
+@{
+    ViewData["Title"] = "Galerie";
+    ViewData["Description"] = "Bildergalerie von Roj Lux ASBL — Impressionen von Newroz, kulturellen Events und Vereinsaktivitäten in Luxemburg.";
+}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="~/images/veranstaltungen.jpg" alt="Galerie"></div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-badge" style="background: rgba(234,179,8,0.15); color: var(--color-gold);">🖼️ Galerie</span>
+    <h1>Unsere Galerie</h1>
+    <p>Impressionen aus unserem Vereinsleben — Feste, Kultur und Gemeinschaft.</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<!-- Gallery -->
+<section class="section">
+  <div class="container">
+
+    <!-- Filter -->
+    <div class="gallery-filter animate-on-scroll">
+      <button class="gallery-filter-btn active" data-filter="all">Alle</button>
+      <button class="gallery-filter-btn" data-filter="newroz">Newroz</button>
+      <button class="gallery-filter-btn" data-filter="kultur">Kultur</button>
+      <button class="gallery-filter-btn" data-filter="gemeinschaft">Gemeinschaft</button>
+      <button class="gallery-filter-btn" data-filter="kinder">Kinder</button>
+    </div>
+
+    <!-- Gallery Grid — dynamisch generiert aus dem Images-Ordner! -->
+    <div class="gallery-grid">
+      @foreach (var bild in Model.Bilder)
+      {
+        <div class="gallery-item animate-on-scroll" data-category="@bild.Kategorie">
+          <img src="~/images/@bild.Dateiname" loading="lazy" alt="@bild.AltText">
+          <div class="gallery-item-overlay"><span>@bild.AltText</span></div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">🎬 Videos</span>
+      <h2>Videos &amp; Medien</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Sehen Sie sich unsere Videos an — Highlights aus unseren Veranstaltungen und Aktivitäten.</p>
+    </div>
+
+    <div class="social-embed animate-on-scroll">
+      <div class="fb-page-container">
+        <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FROJLUX.lu&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false" 
+          width="500" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" 
+          allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          loading="lazy" title="Roj Lux Videos">
+        </iframe>
+      </div>
+      <p class="mt-lg" style="color: var(--color-gray-400); font-size: var(--fs-sm);">
+        Besuchen Sie unsere <a href="https://www.facebook.com/ROJLUX.lu" target="_blank" style="color: var(--color-red); font-weight: 600;">Facebook-Seite</a> für weitere Videos und Updates.
+      </p>
+    </div>
+  </div>
+</section>
+
+@section Scripts {
+  <script src="~/js/gallery.js"></script>
+}

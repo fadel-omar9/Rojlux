@@ -1,0 +1,204 @@
+@page
+@model RojLuxWeb.Pages.MitgliedWerdenModel
+@{
+    ViewData["Title"] = "Mitglied werden";
+    ViewData["Description"] = "Werden Sie Mitglied bei Roj Lux ASBL und unterstützen Sie die kurdische Kultur in Luxemburg. Jetzt Mitgliedsantrag stellen.";
+}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="~/images/veranstaltungen.jpg" alt="Mitglied werden"></div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-badge" style="background: rgba(234,179,8,0.15); color: var(--color-gold);">🤝 Mitgliedschaft</span>
+    <h1>Mitglied werden</h1>
+    <p>Treten Sie unserer Gemeinschaft bei und gestalten Sie die Zukunft mit.</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<!-- Benefits Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">⭐ Vorteile</span>
+      <h2>Warum Mitglied werden?</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Als Mitglied von Roj Lux ASBL sind Sie Teil einer aktiven Gemeinschaft.</p>
+    </div>
+
+    <div class="membership-benefits">
+      <div class="benefit-card animate-on-scroll animate-delay-1">
+        <div class="icon">🎭</div>
+        <h4>Kulturelle Teilhabe</h4>
+        <p>Nehmen Sie an allen Veranstaltungen teil und erleben Sie kurdische Kultur hautnah — vom Newroz-Fest bis zum kulturellen Abend.</p>
+      </div>
+      <div class="benefit-card animate-on-scroll animate-delay-2">
+        <div class="icon">🗳️</div>
+        <h4>Mitbestimmung</h4>
+        <p>Als Mitglied haben Sie Stimmrecht in der Generalversammlung und können aktiv die Zukunft des Vereins mitgestalten.</p>
+      </div>
+      <div class="benefit-card animate-on-scroll animate-delay-3">
+        <div class="icon">👨‍👩‍👧‍👦</div>
+        <h4>Gemeinschaft</h4>
+        <p>Werden Sie Teil einer starken Gemeinschaft, die sich gegenseitig unterstützt und gemeinsam Brücken baut.</p>
+      </div>
+    </div>
+
+    <div class="animate-on-scroll" style="background: var(--color-off-white); border-radius: var(--radius-lg); padding: var(--space-xl); border: 1px solid var(--color-gray-100); max-width: 700px; margin: 0 auto var(--space-3xl);">
+      <h3 style="text-align: center; margin-bottom: var(--space-md);">ℹ️ Wichtige Hinweise</h3>
+      <ul style="font-size: var(--fs-sm); color: var(--color-gray-500); list-style: disc; padding-left: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm);">
+        <li>Die Mitgliedschaft wird <strong>nicht automatisch bestätigt</strong>. Der Vorstand prüft jeden Antrag.</li>
+        <li>Der jährliche Mitgliedsbeitrag beträgt maximal <strong>100 €</strong>.</li>
+        <li>Sie erhalten nach dem Absenden eine Bestätigungs-E-Mail.</li>
+        <li>Der Verein ist <strong>politisch und religiös unabhängig</strong>.</li>
+        <li>Mit Ihrem Antrag erklären Sie sich mit den <a href="/documents/statuts%20coordonn%C3%A9s.pdf" target="_blank" style="color: var(--color-red); font-weight: 600;">Statuten des Vereins</a> einverstanden.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Membership Form -->
+<section class="section section-light" id="formular">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">📝 Antrag</span>
+      <h2>Mitgliedsantrag</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Füllen Sie das Formular aus, um Ihren Mitgliedsantrag zu stellen.</p>
+    </div>
+
+    <div style="max-width: 700px; margin: 0 auto;">
+      @if (Model.ErfolgreichGesendet)
+      {
+        <div class="form-success show">
+          <div class="success-icon">✓</div>
+          <h3>Vielen Dank für Ihren Antrag!</h3>
+          <p style="color: var(--color-gray-500); font-size: var(--fs-md); max-width: 500px; margin: 0 auto var(--space-xl);">
+            Ihr Mitgliedsantrag wurde erfolgreich übermittelt. Sie erhalten in Kürze eine Bestätigungs-E-Mail.
+          </p>
+          <div style="background: var(--color-off-white); border-radius: var(--radius-md); padding: var(--space-xl); max-width: 450px; margin: 0 auto var(--space-xl); text-align: left;">
+            <h4 style="margin-bottom: var(--space-md);">📋 Nächste Schritte:</h4>
+            <ul style="font-size: var(--fs-sm); color: var(--color-gray-500); list-style: decimal; padding-left: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm);">
+              <li>Sie erhalten eine Bestätigungs-E-Mail.</li>
+              <li>Der Vorstand prüft Ihren Antrag.</li>
+              <li>Sie werden über die Entscheidung informiert.</li>
+              <li>Nach Bestätigung zahlen Sie den Mitgliedsbeitrag.</li>
+            </ul>
+          </div>
+          <a asp-page="/Index" class="btn btn-primary">Zurück zur Startseite</a>
+        </div>
+      }
+      else
+      {
+        <form method="post" class="animate-on-scroll">
+          <!-- Name -->
+          <div class="form-row">
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Vorname") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Vorname">Vorname <span class="required">*</span></label>
+              <input type="text" class="form-input" asp-for="Formular.Vorname" placeholder="Ihr Vorname">
+              <div class="form-error"><span asp-validation-for="Formular.Vorname"></span></div>
+            </div>
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Nachname") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Nachname">Nachname <span class="required">*</span></label>
+              <input type="text" class="form-input" asp-for="Formular.Nachname" placeholder="Ihr Nachname">
+              <div class="form-error"><span asp-validation-for="Formular.Nachname"></span></div>
+            </div>
+          </div>
+
+          <!-- Email & Phone -->
+          <div class="form-row">
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Email") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Email">E-Mail-Adresse <span class="required">*</span></label>
+              <input type="email" class="form-input" asp-for="Formular.Email" placeholder="ihre@email.com">
+              <div class="form-error"><span asp-validation-for="Formular.Email"></span></div>
+            </div>
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Telefon") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Telefon">Telefonnummer <span class="required">*</span></label>
+              <input type="tel" class="form-input" asp-for="Formular.Telefon" placeholder="+352 ...">
+              <div class="form-error"><span asp-validation-for="Formular.Telefon"></span></div>
+            </div>
+          </div>
+
+          <!-- Address -->
+          <div class="form-group @(ModelState.GetFieldValidationState("Formular.Strasse") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+            <label class="form-label" asp-for="Formular.Strasse">Straße und Hausnummer <span class="required">*</span></label>
+            <input type="text" class="form-input" asp-for="Formular.Strasse" placeholder="Straße und Hausnummer">
+            <div class="form-error"><span asp-validation-for="Formular.Strasse"></span></div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Plz") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Plz">Postleitzahl <span class="required">*</span></label>
+              <input type="text" class="form-input" asp-for="Formular.Plz" placeholder="z. B. L-1873">
+              <div class="form-error"><span asp-validation-for="Formular.Plz"></span></div>
+            </div>
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Ort") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Ort">Ort <span class="required">*</span></label>
+              <input type="text" class="form-input" asp-for="Formular.Ort" placeholder="z. B. Luxembourg">
+              <div class="form-error"><span asp-validation-for="Formular.Ort"></span></div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" asp-for="Formular.Land">Land</label>
+            <input type="text" class="form-input" asp-for="Formular.Land" placeholder="Luxembourg">
+          </div>
+
+          <!-- Message -->
+          <div class="form-group">
+            <label class="form-label" asp-for="Formular.Nachricht">Nachricht <span style="color: var(--color-gray-300); font-weight: 400;">(optional)</span></label>
+            <textarea class="form-textarea" asp-for="Formular.Nachricht" placeholder="Haben Sie uns etwas mitzuteilen? (z. B. Motivation, besondere Interessen...)"></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div class="form-group @(ModelState.GetFieldValidationState("Formular.Zustimmung") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+            <div class="form-checkbox">
+              <input type="checkbox" asp-for="Formular.Zustimmung">
+              <label asp-for="Formular.Zustimmung">
+                Ich habe die <a href="/documents/statuts%20coordonn%C3%A9s.pdf" target="_blank">Statuten des Vereins</a> gelesen und bin damit einverstanden. Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a asp-page="/Datenschutz">Datenschutzerklärung</a> zu. <span class="required">*</span>
+              </label>
+            </div>
+            <div class="form-error" style="margin-left: 36px;"><span asp-validation-for="Formular.Zustimmung"></span></div>
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center mt-xl">
+            <button type="submit" class="btn btn-primary btn-lg w-full" style="max-width: 400px;">
+              Antrag absenden →
+            </button>
+            <p style="font-size: var(--fs-xs); color: var(--color-gray-300); margin-top: var(--space-md);">
+              Ihre Daten werden vertraulich behandelt und nur für die Bearbeitung Ihres Antrags verwendet.
+            </p>
+          </div>
+        </form>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Donate Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">💰 Spenden</span>
+      <h2>Unterstützen Sie uns</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Auch ohne Mitgliedschaft können Sie unsere Arbeit unterstützen.</p>
+    </div>
+
+    <div class="flex-center">
+      <div class="donate-card animate-on-scroll">
+        <h3>💛 Spende an Roj Lux ASBL</h3>
+        <p style="color: var(--color-gray-500);">Jeder Beitrag hilft uns, kulturelle Veranstaltungen zu organisieren und die kurdische Gemeinschaft in Luxemburg zu unterstützen.</p>
+        <div class="bank-info">
+          <p><span>Kontoinhaber:</span> Roj Lux ASBL</p>
+          <p><span>IBAN:</span> LU07 0099 7800 0069 8951</p>
+          <p><span>Bank:</span> BCEE Luxembourg</p>
+          <p><span>Verwendungszweck:</span> Spende</p>
+        </div>
+        <p style="font-size: var(--fs-xs); color: var(--color-gray-300);">Vielen Dank für Ihre Großzügigkeit! 🙏</p>
+      </div>
+    </div>
+  </div>
+</section>

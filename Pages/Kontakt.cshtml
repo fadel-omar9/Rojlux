@@ -1,0 +1,120 @@
+@page
+@model RojLuxWeb.Pages.KontaktModel
+@{
+    ViewData["Title"] = "Kontakt";
+    ViewData["Description"] = "Kontaktieren Sie Roj Lux ASBL — wir freuen uns auf Ihre Nachricht. Adresse, E-Mail und Kontaktformular.";
+}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="~/images/hintergrunf.jpg" alt="Kontakt"></div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-badge" style="background: rgba(234,179,8,0.15); color: var(--color-gold);">📞 Kontakt</span>
+    <h1>Kontakt</h1>
+    <p>Wir freuen uns auf Ihre Nachricht — schreiben Sie uns!</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<!-- Contact Info Cards -->
+<section class="section">
+  <div class="container">
+    <div class="grid-3" style="margin-bottom: var(--space-4xl);">
+      <div class="contact-info-card animate-on-scroll animate-delay-1">
+        <div class="icon">📍</div>
+        <div>
+          <h4>Adresse</h4>
+          <p>5, rue Johannes Kepler<br>L-1873 Luxembourg</p>
+        </div>
+      </div>
+      <div class="contact-info-card animate-on-scroll animate-delay-2">
+        <div class="icon" style="background: var(--color-gold-light); color: var(--color-gold-dark);">📧</div>
+        <div>
+          <h4>E-Mail</h4>
+          <p><a href="mailto:rojlux1@gmail.com" style="color: var(--color-red);">info@rojlux.lu</a></p>
+        </div>
+      </div>
+      <div class="contact-info-card animate-on-scroll animate-delay-3">
+        <div class="icon" style="background: var(--color-green-light); color: var(--color-green);">📘</div>
+        <div>
+          <h4>Social Media</h4>
+          <p><a href="https://www.facebook.com/ROJLUX.lu" target="_blank" style="color: var(--color-red);">Facebook: ROJLUX.lu</a></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form & Map -->
+    <div class="contact-grid">
+      <!-- Form -->
+      <div class="animate-on-scroll">
+        @if (Model.ErfolgreichGesendet)
+        {
+          <div class="form-success show">
+            <div class="success-icon">✓</div>
+            <h3>Nachricht gesendet!</h3>
+            <p style="color: var(--color-gray-500);">Vielen Dank für Ihre Nachricht. Wir werden uns so schnell wie möglich bei Ihnen melden.</p>
+            <a asp-page="/Index" class="btn btn-primary mt-lg">Zurück zur Startseite</a>
+          </div>
+        }
+        else
+        {
+          <h2 style="margin-bottom: var(--space-sm);">Schreiben Sie uns</h2>
+          <p style="margin-bottom: var(--space-xl);">Haben Sie eine Frage, einen Vorschlag oder möchten Sie mit uns zusammenarbeiten? Wir freuen uns auf Ihre Nachricht.</p>
+
+          <form method="post">
+            <div class="form-row">
+              <div class="form-group @(ModelState.GetFieldValidationState("Formular.Name") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+                <label class="form-label" asp-for="Formular.Name">Name <span class="required">*</span></label>
+                <input type="text" class="form-input" asp-for="Formular.Name" placeholder="Ihr Name">
+                <div class="form-error"><span asp-validation-for="Formular.Name"></span></div>
+              </div>
+              <div class="form-group @(ModelState.GetFieldValidationState("Formular.Email") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+                <label class="form-label" asp-for="Formular.Email">E-Mail <span class="required">*</span></label>
+                <input type="email" class="form-input" asp-for="Formular.Email" placeholder="ihre@email.com">
+                <div class="form-error"><span asp-validation-for="Formular.Email"></span></div>
+              </div>
+            </div>
+
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Betreff") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Betreff">Betreff <span class="required">*</span></label>
+              <input type="text" class="form-input" asp-for="Formular.Betreff" placeholder="Worum geht es?">
+              <div class="form-error"><span asp-validation-for="Formular.Betreff"></span></div>
+            </div>
+
+            <div class="form-group @(ModelState.GetFieldValidationState("Formular.Nachricht") == Microsoft.AspNetCore.Mvc.ModelBinding.ModelValidationState.Invalid ? "error" : "")">
+              <label class="form-label" asp-for="Formular.Nachricht">Nachricht <span class="required">*</span></label>
+              <textarea class="form-textarea" asp-for="Formular.Nachricht" placeholder="Ihre Nachricht an uns..."></textarea>
+              <div class="form-error"><span asp-validation-for="Formular.Nachricht"></span></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Nachricht senden →</button>
+          </form>
+        }
+      </div>
+
+      <!-- Map & Info -->
+      <div class="animate-on-scroll animate-delay-2">
+        <div style="border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); margin-bottom: var(--space-xl);">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2585.4!2d6.1296!3d49.6116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s5+rue+Johannes+Kepler+1873+Luxembourg!5e0!3m2!1sde!2slu!4v1" 
+            width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Roj Lux ASBL Standort">
+          </iframe>
+        </div>
+
+        <!-- Donate Info -->
+        <div class="donate-card" style="max-width: 100%; box-shadow: var(--shadow-md);">
+          <h3>💛 Unterstützen Sie uns</h3>
+          <p style="color: var(--color-gray-500); font-size: var(--fs-sm);">Ihre Spende hilft uns, kulturelle Veranstaltungen zu organisieren.</p>
+          <div class="bank-info">
+            <p><span>Kontoinhaber:</span> Roj Lux ASBL</p>
+            <p><span>IBAN:</span> LU07 0099 7800 0069 8951</p>
+            <p><span>Bank:</span> BCEE Luxembourg</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

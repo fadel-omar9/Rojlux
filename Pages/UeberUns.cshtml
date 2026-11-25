@@ -1,0 +1,131 @@
+@page
+@model RojLuxWeb.Pages.UeberUnsModel
+@{
+    ViewData["Title"] = "Über uns";
+    ViewData["Description"] = "Erfahren Sie mehr über Roj Lux ASBL — unsere Mission, Ziele und Aktivitäten zur Förderung der kurdischen Kultur in Luxemburg.";
+}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg">
+    <img src="~/images/hintergrunf.jpg" alt="Kulturelle Veranstaltung">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-badge" style="background: rgba(234,179,8,0.15); color: var(--color-gold);">☀️ Über uns</span>
+    <h1>Wer wir sind</h1>
+    <p>Erfahren Sie mehr über die Mission, Ziele und Werte von Roj Lux ASBL.</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<!-- About Introduction -->
+<section class="section">
+  <div class="container">
+    <div class="about-intro">
+      <div class="animate-on-scroll">
+        <span class="section-badge">🏛️ Der Verein</span>
+        <h2>Roj Lux ASBL</h2>
+        <div class="sun-divider" style="margin-left: 0;"><span class="sun-icon">☀️</span></div>
+        <p style="font-size: var(--fs-md); color: var(--color-gray-500); margin-top: var(--space-lg);">
+          <strong>Roj Lux ASBL</strong> (Société de la culture &amp; des Arts) ist ein gemeinnütziger Verein mit Sitz in Luxemburg. Gegründet mit der Vision, die kurdische Kultur lebendig zu halten und gleichzeitig die Integration der kurdischen Gemeinschaft in die luxemburgische Gesellschaft zu fördern.
+        </p>
+        <p style="font-size: var(--fs-md); color: var(--color-gray-500);">
+          Unser Verein ist politisch und religiös unabhängig. Wir glauben an Dialog, Vielfalt und gegenseitigen Respekt als Grundlage für ein harmonisches Zusammenleben.
+        </p>
+        <p style="font-size: var(--fs-md); color: var(--color-gray-500);">
+          Der Verein hat seinen Sitz in <strong>5, rue Johannes Kepler, L-1873 Luxembourg</strong> und ist auf unbegrenzte Dauer gegründet.
+        </p>
+        <a href="/documents/statuts%20coordonn%C3%A9s.pdf" target="_blank" class="btn btn-outline mt-lg">📄 Statuten herunterladen</a>
+      </div>
+      <div class="about-image animate-on-scroll animate-delay-2">
+        <img src="~/images/hintergrunf.jpg" alt="Roj Lux Gemeinschaft">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Values -->
+<section class="section section-light">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">🎯 Unsere Ziele</span>
+      <h2>Was uns antreibt</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+    </div>
+
+    <div class="grid-3">
+      <div class="feature-card animate-on-scroll animate-delay-1">
+        <div class="feature-card-icon red">🌍</div>
+        <h3>Integration fördern</h3>
+        <p>Wir unterstützen aktiv die Integration von Kurdinnen und Kurden in die luxemburgische Gesellschaft — durch Sprachkurse, Beratung und Vernetzung.</p>
+      </div>
+      <div class="feature-card animate-on-scroll animate-delay-2">
+        <div class="feature-card-icon gold">🎵</div>
+        <h3>Kultur erhalten</h3>
+        <p>Die kurdische Kultur, Sprache und Traditionen sind unser Erbe. Wir bewahren und feiern sie durch Veranstaltungen, Musik und Bildung.</p>
+      </div>
+      <div class="feature-card animate-on-scroll animate-delay-3">
+        <div class="feature-card-icon green">🎪</div>
+        <h3>Veranstaltungen organisieren</h3>
+        <p>Vom Newroz-Fest bis zum kulturellen Abend — unsere Events bringen Menschen zusammen und schaffen unvergessliche Momente.</p>
+      </div>
+    </div>
+
+    <div class="grid-3 mt-xl">
+      <div class="feature-card animate-on-scroll animate-delay-1">
+        <div class="feature-card-icon gold">📚</div>
+        <h3>Bildung für Kinder</h3>
+        <p>Wir bieten Kurse für Kinder an, um die kurdische Sprache und Kultur spielerisch zu vermitteln und an die nächste Generation weiterzugeben.</p>
+      </div>
+      <div class="feature-card animate-on-scroll animate-delay-2">
+        <div class="feature-card-icon red">🏘️</div>
+        <h3>Gesellschaftliche Teilhabe</h3>
+        <p>Wir nehmen aktiv am gesellschaftlichen Leben in Luxemburg teil und engagieren uns bei kulturellen und sozialen Events.</p>
+      </div>
+      <div class="feature-card animate-on-scroll animate-delay-3">
+        <div class="feature-card-icon green">🕊️</div>
+        <h3>Unabhängig &amp; Offen</h3>
+        <p>Roj Lux ASBL ist politisch und religiös unabhängig. Wir stehen für Toleranz, Offenheit und gegenseitigen Respekt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Organisation -->
+<section class="section">
+  <div class="container">
+    <div class="section-header animate-on-scroll">
+      <span class="section-badge">⚙️ Organisation</span>
+      <h2>Unsere Struktur</h2>
+      <div class="sun-divider"><span class="sun-icon">☀️</span></div>
+      <p>Der Verein wird demokratisch geführt und transparent verwaltet.</p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card-glass animate-on-scroll animate-delay-1" style="background: var(--color-off-white); border: 1px solid var(--color-gray-100);">
+        <h3 style="margin-bottom: var(--space-md);">📋 Generalversammlung</h3>
+        <p style="font-size: var(--fs-sm);">Die Generalversammlung ist das höchste Organ des Vereins. Alle Mitglieder können teilnehmen und abstimmen. Hier werden wichtige Entscheidungen getroffen, der Vorstand gewählt und der Jahresbericht vorgestellt.</p>
+      </div>
+      <div class="card-glass animate-on-scroll animate-delay-2" style="background: var(--color-off-white); border: 1px solid var(--color-gray-100);">
+        <h3 style="margin-bottom: var(--space-md);">👥 Vorstand</h3>
+        <p style="font-size: var(--fs-sm);">Der Vorstand besteht aus mindestens 3 Personen und wird von der Generalversammlung gewählt. Er kümmert sich um die tägliche Vereinsarbeit und vertritt den Verein nach außen.</p>
+      </div>
+      <div class="card-glass animate-on-scroll animate-delay-3" style="background: var(--color-off-white); border: 1px solid var(--color-gray-100);">
+        <h3 style="margin-bottom: var(--space-md);">💰 Mitgliedsbeitrag</h3>
+        <p style="font-size: var(--fs-sm);">Der jährliche Mitgliedsbeitrag beträgt maximal 100 €. Die genaue Höhe wird von der Generalversammlung festgelegt. Damit finanzieren wir unsere Aktivitäten und Veranstaltungen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content animate-on-scroll">
+      <h2>Werden Sie Teil von Roj Lux</h2>
+      <p>Unterstützen Sie unsere Arbeit und werden Sie Mitglied unseres Vereins.</p>
+      <a asp-page="/MitgliedWerden" class="btn btn-primary btn-lg">Jetzt Mitglied werden →</a>
+    </div>
+  </div>
+</section>

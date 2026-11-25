@@ -1,0 +1,28 @@
+@page
+@model RojLuxWeb.Pages.ErrorModel
+@{
+    ViewData["Title"] = "Fehler";
+    ViewData["Description"] = "Ein Fehler ist aufgetreten.";
+}
+
+<section class="page-hero" style="min-height: 300px;">
+  <div class="hero-overlay" style="background: var(--gradient-dark);"></div>
+  <div class="page-hero-content">
+    <h1>Fehler</h1>
+    <p>Etwas ist schiefgelaufen.</p>
+  </div>
+</section>
+<div class="tricolor-bar"></div>
+
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <div class="animate-on-scroll">
+      <div style="font-size: 4rem; margin-bottom: var(--space-xl);">😕</div>
+      <h2 style="margin-bottom: var(--space-lg);">Oops! Ein Fehler ist aufgetreten.</h2>
+      <p style="font-size: var(--fs-md); max-width: 500px; margin: 0 auto var(--space-2xl);">
+        Die angeforderte Seite konnte nicht gefunden werden oder es ist ein technischer Fehler aufgetreten.
+      </p>
+      <a asp-page="/Index" class="btn btn-primary btn-lg">Zurück zur Startseite</a>
+    </div>
+  </div>
+</section>
